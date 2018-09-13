@@ -1,0 +1,70 @@
+﻿@model IEnumerable<Webshop.Models.MenuItem>
+
+<h2> @ViewBag.Category </h2>
+
+<form method="get" action="/MenuItems/Category/@ViewBag.Category">
+
+    <input type="text" name="search" > </input>
+    <input type="submit" value="Search"> </input>
+    
+</form>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Category)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Category)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+            @if (item.Category != "Drink")
+            {
+                if (item.Spicy == 1)
+                {
+                    <text> - Hot </text>
+                }
+                if (item.Vegatarian == 1)
+                {
+
+                    <text> - Vegetarian </text>
+                }
+            }
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Price)
+        </td>
+
+        <td>
+            @Html.ActionLink("Add to cart", "Add", "Cart", new { id = item.Id }, null)
+        </td>
+    </tr>
+}
+
+</table>
+
+<script>    
+
+    function filter(value){
+        console.log(value);
+    }
+
+</script>

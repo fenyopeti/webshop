@@ -1,0 +1,282 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="WebshopDatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CartItem">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CartId" Type="varchar" MaxLength="255" />
+          <Property Name="Quantity" Type="int" />
+          <Property Name="DateCreated" Type="date" />
+          <Property Name="MenuItemId" Type="uniqueidentifier" />
+        </EntityType>
+        <EntityType Name="MenuItems">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Category" Type="varchar" MaxLength="255" />
+          <Property Name="Description" Type="varchar" MaxLength="255" />
+          <Property Name="Name" Type="varchar" MaxLength="255" />
+          <Property Name="Price" Type="int" />
+          <Property Name="Spicy" Type="int" />
+          <Property Name="Vegatarian" Type="int" />
+          <Property Name="OrderedSum" Type="int" />
+        </EntityType>
+        <EntityType Name="Orders">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="255" />
+          <Property Name="address" Type="varchar" MaxLength="255" />
+          <Property Name="phone" Type="varchar" MaxLength="15" />
+          <Property Name="amount" Type="int" />
+        </EntityType>
+        <EntityType Name="OrdersItem">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="OrderId" Type="uniqueidentifier" />
+          <Property Name="MenuItemId" Type="uniqueidentifier" />
+        </EntityType>
+        <Association Name="fk">
+          <End Role="MenuItems" Type="Self.MenuItems" Multiplicity="0..1" />
+          <End Role="CartItem" Type="Self.CartItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MenuItems">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CartItem">
+              <PropertyRef Name="MenuItemId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__OrdersIte__MenuI__4F7CD00D">
+          <End Role="MenuItems" Type="Self.MenuItems" Multiplicity="0..1" />
+          <End Role="OrdersItem" Type="Self.OrdersItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MenuItems">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OrdersItem">
+              <PropertyRef Name="MenuItemId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__OrdersIte__Order__4E88ABD4">
+          <End Role="Orders" Type="Self.Orders" Multiplicity="0..1" />
+          <End Role="OrdersItem" Type="Self.OrdersItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Orders">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="OrdersItem">
+              <PropertyRef Name="OrderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="WebshopDatabaseModelStoreContainer">
+          <EntitySet Name="CartItem" EntityType="Self.CartItem" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MenuItems" EntityType="Self.MenuItems" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OrdersItem" EntityType="Self.OrdersItem" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="fk" Association="Self.fk">
+            <End Role="MenuItems" EntitySet="MenuItems" />
+            <End Role="CartItem" EntitySet="CartItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OrdersIte__MenuI__4F7CD00D" Association="Self.FK__OrdersIte__MenuI__4F7CD00D">
+            <End Role="MenuItems" EntitySet="MenuItems" />
+            <End Role="OrdersItem" EntitySet="OrdersItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OrdersIte__Order__4E88ABD4" Association="Self.FK__OrdersIte__Order__4E88ABD4">
+            <End Role="Orders" EntitySet="Orders" />
+            <End Role="OrdersItem" EntitySet="OrdersItem" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="WebshopDatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CartItem">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="CartId" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Quantity" Type="Int32" />
+          <Property Name="DateCreated" Type="DateTime" Precision="0" />
+          <Property Name="MenuItemId" Type="Guid" />
+          <NavigationProperty Name="MenuItem" Relationship="Self.fk" FromRole="CartItem" ToRole="MenuItems" />
+        </EntityType>
+        <EntityType Name="MenuItem">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Category" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Price" Type="Int32" />
+          <Property Name="Spicy" Type="Int32" />
+          <Property Name="Vegatarian" Type="Int32" />
+          <Property Name="OrderedSum" Type="Int32" />
+          <NavigationProperty Name="CartItems" Relationship="Self.fk" FromRole="MenuItems" ToRole="CartItem" />
+          <NavigationProperty Name="OrdersItems" Relationship="WebshopDatabaseModel.FK__OrdersIte__MenuI__4F7CD00D" FromRole="MenuItem" ToRole="OrdersItem" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Guid" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="address" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="phone" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="amount" Type="Int32" />
+          <NavigationProperty Name="OrdersItems" Relationship="WebshopDatabaseModel.FK__OrdersIte__Order__4E88ABD4" FromRole="Order" ToRole="OrdersItem" />
+        </EntityType>
+        <Association Name="fk">
+          <End Role="MenuItems" Type="Self.MenuItem" Multiplicity="0..1" />
+          <End Role="CartItem" Type="Self.CartItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MenuItems">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CartItem">
+              <PropertyRef Name="MenuItemId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="WebshopDatabaseEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CartItems" EntityType="Self.CartItem" />
+          <EntitySet Name="MenuItems" EntityType="Self.MenuItem" />
+          <EntitySet Name="Orders" EntityType="Self.Order" />
+          <AssociationSet Name="fk" Association="Self.fk">
+            <End Role="MenuItems" EntitySet="MenuItems" />
+            <End Role="CartItem" EntitySet="CartItems" />
+          </AssociationSet>
+          <EntitySet Name="OrdersItems" EntityType="WebshopDatabaseModel.OrdersItem" />
+          <AssociationSet Name="FK__OrdersIte__MenuI__4F7CD00D" Association="WebshopDatabaseModel.FK__OrdersIte__MenuI__4F7CD00D">
+            <End Role="MenuItem" EntitySet="MenuItems" />
+            <End Role="OrdersItem" EntitySet="OrdersItems" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OrdersIte__Order__4E88ABD4" Association="WebshopDatabaseModel.FK__OrdersIte__Order__4E88ABD4">
+            <End Role="Order" EntitySet="Orders" />
+            <End Role="OrdersItem" EntitySet="OrdersItems" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="OrdersItem">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="OrderId" Type="Guid" />
+          <Property Name="MenuItemId" Type="Guid" />
+          <NavigationProperty Name="MenuItem" Relationship="WebshopDatabaseModel.FK__OrdersIte__MenuI__4F7CD00D" FromRole="OrdersItem" ToRole="MenuItem" />
+          <NavigationProperty Name="Order" Relationship="WebshopDatabaseModel.FK__OrdersIte__Order__4E88ABD4" FromRole="OrdersItem" ToRole="Order" />
+        </EntityType>
+        <Association Name="FK__OrdersIte__MenuI__4F7CD00D">
+          <End Type="WebshopDatabaseModel.MenuItem" Role="MenuItem" Multiplicity="0..1" />
+          <End Type="WebshopDatabaseModel.OrdersItem" Role="OrdersItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MenuItem">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OrdersItem">
+              <PropertyRef Name="MenuItemId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__OrdersIte__Order__4E88ABD4">
+          <End Type="WebshopDatabaseModel.Order" Role="Order" Multiplicity="0..1" />
+          <End Type="WebshopDatabaseModel.OrdersItem" Role="OrdersItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="OrdersItem">
+              <PropertyRef Name="OrderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="WebshopDatabaseModelStoreContainer" CdmEntityContainer="WebshopDatabaseEntities1">
+          <EntitySetMapping Name="CartItems">
+            <EntityTypeMapping TypeName="WebshopDatabaseModel.CartItem">
+              <MappingFragment StoreEntitySet="CartItem">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CartId" ColumnName="CartId" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="MenuItemId" ColumnName="MenuItemId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MenuItems">
+            <EntityTypeMapping TypeName="WebshopDatabaseModel.MenuItem">
+              <MappingFragment StoreEntitySet="MenuItems">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Spicy" ColumnName="Spicy" />
+                <ScalarProperty Name="Vegatarian" ColumnName="Vegatarian" />
+                <ScalarProperty Name="OrderedSum" ColumnName="OrderedSum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Orders">
+            <EntityTypeMapping TypeName="WebshopDatabaseModel.Order">
+              <MappingFragment StoreEntitySet="Orders">
+                <ScalarProperty Name="amount" ColumnName="amount" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrdersItems">
+            <EntityTypeMapping TypeName="WebshopDatabaseModel.OrdersItem">
+              <MappingFragment StoreEntitySet="OrdersItem">
+                <ScalarProperty Name="MenuItemId" ColumnName="MenuItemId" />
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
