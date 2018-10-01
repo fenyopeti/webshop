@@ -6,7 +6,7 @@ namespace Webshop.Services
 {
     public class CategoriesService : ICategoriesService
     {
-        private readonly WebshopDatabaseEntities1 db = new WebshopDatabaseEntities1();
+        private readonly WebshopDatabaseEntities db = new WebshopDatabaseEntities();
 
         public IEnumerable<string> FindAll()
         {

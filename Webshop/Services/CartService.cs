@@ -9,7 +9,7 @@ namespace Webshop.Services
 {
     public class CartService : ICartService
     {
-        private readonly WebshopDatabaseEntities1 db = new WebshopDatabaseEntities1();
+        private readonly WebshopDatabaseEntities db = new WebshopDatabaseEntities();
         private readonly string CartSessionKey = "CartId";
 
         public IList<CartItem> GetCartItems()
