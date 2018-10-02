@@ -193,6 +193,7 @@
     <Compile Include="Auth\ApplicationSignInManager.cs" />
     <Compile Include="Auth\ApplicationUserManager.cs" />
     <Compile Include="Bootstrapper.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AuthController.cs" />
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -216,6 +217,10 @@
     <Compile Include="Migrations\201810021518561_UserFKtoOrder.Designer.cs">
       <DependentUpon>201810021518561_UserFKtoOrder.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201810021549389_CleanupOrders.cs" />
+    <Compile Include="Migrations\201810021549389_CleanupOrders.Designer.cs">
+      <DependentUpon>201810021549389_CleanupOrders.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\CartItem.cs" />
     <Compile Include="Models\MenuItem.cs" />
@@ -232,7 +237,9 @@
     <Compile Include="Services\ICartService.cs" />
     <Compile Include="Services\ICategoriesService.cs" />
     <Compile Include="Services\IMenuItemService.cs" />
+    <Compile Include="Services\IOrderService.cs" />
     <Compile Include="Services\MenuItemService.cs" />
+    <Compile Include="Services\OrderService.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -276,6 +283,7 @@
     <Content Include="Views\Auth\Register.cshtml" />
     <Content Include="Views\Auth\Login.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Account\History.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -308,6 +316,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201810021518561_UserFKtoOrder.resx">
       <DependentUpon>201810021518561_UserFKtoOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810021549389_CleanupOrders.resx">
+      <DependentUpon>201810021549389_CleanupOrders.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

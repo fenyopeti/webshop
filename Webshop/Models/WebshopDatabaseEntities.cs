@@ -38,17 +38,6 @@ namespace Webshop.Models
                 .Property(e => e.Name)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<Order>()
-                .Property(e => e.name)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Order>()
-                .Property(e => e.address)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Order>()
-                .Property(e => e.phone)
-                .IsUnicode(false);
 
             base.OnModelCreating(modelBuilder);
         }

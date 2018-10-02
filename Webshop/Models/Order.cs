@@ -16,14 +16,7 @@ namespace Webshop.Models
 
         public Guid id { get; set; }
 
-        [StringLength(255)]
-        public string name { get; set; }
-
-        [StringLength(255)]
-        public string address { get; set; }
-
-        [StringLength(15)]
-        public string phone { get; set; }
+        public DateTime Date { get; set; }
 
         public int? amount { get; set; }
 
