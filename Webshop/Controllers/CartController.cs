@@ -6,6 +6,7 @@ using Webshop.Services;
 
 namespace Webshop.Controllers
 {
+    [Authorize]
     public class CartController : Controller
     {
         private readonly ICartService _cartService;
@@ -49,14 +50,14 @@ namespace Webshop.Controllers
 
         [HttpPost, ActionName("Checkout")]
         [ValidateAntiForgeryToken]
-        public ActionResult CheckOutConfirmed(UserInfoDTO userInfo)
+        public ActionResult CheckOutConfirmed()
         {
             if (!ModelState.IsValid)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            _cartService.Checkout(userInfo);
+            _cartService.Checkout(User.Identity.Name);
             _cartService.DeleteCart();
             return Redirect("/MenuItems");
         }

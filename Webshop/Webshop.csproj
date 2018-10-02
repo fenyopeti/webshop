@@ -212,6 +212,10 @@
     <Compile Include="Migrations\201810021446507_update-user.Designer.cs">
       <DependentUpon>201810021446507_update-user.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201810021518561_UserFKtoOrder.cs" />
+    <Compile Include="Migrations\201810021518561_UserFKtoOrder.Designer.cs">
+      <DependentUpon>201810021518561_UserFKtoOrder.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\CartItem.cs" />
     <Compile Include="Models\MenuItem.cs" />
@@ -221,7 +225,6 @@
     <Compile Include="Models\WebshopDatabaseEntities.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\OrdersItem.cs" />
-    <Compile Include="PerRequestLifetimeManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\CartService.cs" />
     <Compile Include="Services\CategoriesService.cs" />
@@ -302,6 +305,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201810021446507_update-user.resx">
       <DependentUpon>201810021446507_update-user.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810021518561_UserFKtoOrder.resx">
+      <DependentUpon>201810021518561_UserFKtoOrder.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

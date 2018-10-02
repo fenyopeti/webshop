@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using Webshop.Models;
@@ -50,15 +51,17 @@ namespace Webshop.Services
             db.SaveChanges();
         }
 
-        public void Checkout(UserInfoDTO userInfo)
+        public void Checkout(string userName)
         {
+            var user = db.Users.FirstOrDefault(u => u.UserName == userName);
             var order = new Order
             {
                 id = Guid.NewGuid(),
-                address = userInfo.Address,
-                name = userInfo.Name,
-                phone = userInfo.Phone,
-                amount = GetCartPrice()
+                address = user.Address,
+                name = user.Name,
+                phone = user.PhoneNumber,
+                amount = GetCartPrice(),
+                User = user
             };
             db.Orders.Add(order);
             db.SaveChanges();

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using Webshop.Models;
-using Webshop.Models.DTOs;
 
 namespace Webshop.Services
 {
@@ -9,7 +8,7 @@ namespace Webshop.Services
     {
         void AddToCart(Guid menuItemId);
         IList<CartItem> GetCartItems();
-        void Checkout(UserInfoDTO userInfo);
+        void Checkout(string userName);
         bool CanAddToCart(Guid menuItemId);
         void DeleteCart();
         int GetCartPrice();

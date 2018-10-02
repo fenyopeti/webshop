@@ -29,5 +29,10 @@ namespace Webshop.Models
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<OrdersItem> OrdersItems { get; set; }
+
+        [ForeignKey("User")]
+        public string UserId { get; set; }
+        public ApplicationUser User { get; set; }
+
     }
 }
