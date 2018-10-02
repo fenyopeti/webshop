@@ -1,12 +1,18 @@
 namespace Webshop.Models
 {
+    using Microsoft.AspNet.Identity.EntityFramework;
     using System.Data.Entity;
 
-    public partial class WebshopDatabaseEntities : DbContext
+    public partial class WebshopDatabaseEntities : IdentityDbContext<ApplicationUser>
     {
         public WebshopDatabaseEntities()
-            : base("name=Models")
+            : base("name=Models", throwIfV1Schema: false)
         {
+        }
+
+        public static WebshopDatabaseEntities Create()
+        {
+            return new WebshopDatabaseEntities();
         }
 
         public virtual DbSet<CartItem> CartItems { get; set; }
@@ -43,6 +49,8 @@ namespace Webshop.Models
             modelBuilder.Entity<Order>()
                 .Property(e => e.phone)
                 .IsUnicode(false);
+
+            base.OnModelCreating(modelBuilder);
         }
     }
 }
