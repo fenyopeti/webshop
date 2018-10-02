@@ -57,9 +57,7 @@ namespace Webshop.Services
             var order = new Order
             {
                 id = Guid.NewGuid(),
-                address = user.Address,
-                name = user.Name,
-                phone = user.PhoneNumber,
+                Date = DateTime.Now,
                 amount = GetCartPrice(),
                 User = user
             };

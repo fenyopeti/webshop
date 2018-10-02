@@ -36,6 +36,7 @@ namespace Webshop
             container.RegisterType<IMenuItemService, MenuItemService>();
             container.RegisterType<ICategoriesService, CategoriesService>();
             container.RegisterType<ICartService, CartService>();
+            container.RegisterType<IOrderService, OrderService>();
 
             return container;
         }

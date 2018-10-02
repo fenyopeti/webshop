@@ -1,0 +1,50 @@
+﻿@model IEnumerable<Webshop.Models.Order>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+    @foreach (var item in Model)
+    {
+
+
+        <div class="panel panel-default">
+            <!-- Default panel contents -->
+            <div class="panel-heading">@item.Date</div>
+            <div class="panel-body">
+                <p> @item.amount </p>
+            </div>
+
+            <!-- Table -->
+            <table class="table">
+                <tr>
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        Desc
+                    </th>
+                    <th>
+                        Price
+                        </th>
+                </tr>
+                @foreach (var orderItem in item.OrdersItems)
+                {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => orderItem.MenuItem.Description)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => orderItem.MenuItem.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => orderItem.MenuItem.Price)
+                    </td>
+                </tr>
+
+                }
+            </table>
+        </div>
+    }
+
