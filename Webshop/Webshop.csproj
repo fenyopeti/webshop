@@ -233,7 +233,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\CartService.cs" />
     <Compile Include="Services\CategoriesService.cs" />
-    <Compile Include="Models\DTOs\UserInfoDTO.cs" />
     <Compile Include="Services\ICartService.cs" />
     <Compile Include="Services\ICategoriesService.cs" />
     <Compile Include="Services\IMenuItemService.cs" />

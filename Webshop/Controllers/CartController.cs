@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Net;
 using System.Web.Mvc;
-using Webshop.Models.DTOs;
 using Webshop.Services;
 
 namespace Webshop.Controllers
