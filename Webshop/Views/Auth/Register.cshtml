@@ -1,14 +1,12 @@
 ﻿@model Webshop.Models.ViewModels.RegisterViewModel
 
-<h2>Checkout</h2>
-
+<h2>@Webshop.Resources.Auth.Register</h2>
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
 
 <div class="form-horizontal">
-    <h4>MenuItems</h4>
     <hr />
     <div class="form-group">
         @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -52,15 +50,11 @@
 
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Checkout" class="btn btn-default" />
+            <input type="submit" value="@Webshop.Resources.Auth.Register" class="btn btn-default" />
         </div>
     </div>
 </div>
 }
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

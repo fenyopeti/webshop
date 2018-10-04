@@ -4,7 +4,7 @@ using Webshop.Services;
 namespace Webshop.Controllers
 {
     [Authorize]
-    public class AccountController : Controller
+    public class AccountController : ControllerBase
     {
         private readonly IOrderService _orderService;
 

@@ -10,6 +10,7 @@ namespace Webshop.Models
         [StringLength(255)]
         public string CartId { get; set; }
 
+        [Display(Name = "Quantity", ResourceType = typeof(Resources.Cart))]
         public int? Quantity { get; set; }
 
         public DateTime? DateCreated { get; set; }

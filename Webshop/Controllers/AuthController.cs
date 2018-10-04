@@ -13,7 +13,7 @@ using Webshop.Models.ViewModels;
 namespace Webshop.Controllers
 {
     [Authorize]
-    public class AuthController : Controller
+    public class AuthController : ControllerBase
     {
         private ApplicationUserManager _userManager;
         private ApplicationSignInManager _signInManager;
@@ -77,14 +77,14 @@ namespace Webshop.Controllers
             {
                 return View(model);
             }
-
+            
             var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, false, false);
             switch (result)
             {
                 case SignInStatus.Success:
                     return Redirect("/");
                 default:
-                    ModelState.AddModelError("", "Invalid login attempt.");
+                    ModelState.AddModelError("", Resources.ModelValidation.InvalidLogin);
                     return View(model);
             }
         }

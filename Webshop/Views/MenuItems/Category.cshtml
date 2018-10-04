@@ -5,7 +5,7 @@
 <form method="get" action="/MenuItems/Category/@ViewBag.Category">
 
     <input type="text" name="search" > </input>
-    <input type="submit" value="Search"> </input>
+    <input type="submit" value="@Webshop.Resources.Common.Search"> </input>
     
 </form>
 
@@ -40,12 +40,12 @@
             {
                 if (item.Spicy == 1)
                 {
-                    <text> - Hot </text>
+                    <text> - @Webshop.Resources.MenuItem.Spicy </text>
                 }
                 if (item.Vegatarian == 1)
                 {
 
-                    <text> - Vegetarian </text>
+                    <text> - @Webshop.Resources.MenuItem.Vegetarian </text>
                 }
             }
         </td>
@@ -54,17 +54,9 @@
         </td>
 
         <td>
-            @Html.ActionLink("Add to cart", "Add", "Cart", new { id = item.Id }, null)
+            @Html.ActionLink(Webshop.Resources.Cart.AddToCart, "Add", "Cart", new { id = item.Id }, null)
         </td>
     </tr>
 }
 
 </table>
-
-<script>    
-
-    function filter(value){
-        console.log(value);
-    }
-
-</script>

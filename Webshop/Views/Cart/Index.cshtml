@@ -1,14 +1,14 @@
 ﻿@model IEnumerable<Webshop.Models.CartItem>
 
 
-<h2>My Shopping Cart</h2>
+<h2>@Webshop.Resources.Common.Cart</h2>
 
 <p>
-    @Html.ActionLink("Delete the cart", "Delete")
+    @Html.ActionLink(Webshop.Resources.Cart.DeleteCart, "Delete")
 </p>
 <p>
-    Price of products in your cart: @ViewBag.Amount HUF
-    @Html.ActionLink("Checkout cart", "Checkout")
+    @Webshop.Resources.Cart.PriceOfCart @ViewBag.Amount HUF
+    @Html.ActionLink(Webshop.Resources.Cart.Checkout, "Checkout")
 </p>
 <table class="table">
     <tr>
@@ -38,7 +38,7 @@
                 @Html.DisplayFor(modelItem => item.MenuItem.Price)
             </td>
             <td>
-                @Html.ActionLink("Delete", "DeleteFromCart", new { id = item.MenuItemId }, null)
+                @Html.ActionLink(Webshop.Resources.Cart.Delete, "DeleteFromCart", new { id = item.MenuItemId }, null)
             </td>
         </tr>
     }

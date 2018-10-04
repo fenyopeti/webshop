@@ -1,6 +1,7 @@
 namespace Webshop.Models
 {
     using System;
+    using System.ComponentModel.DataAnnotations;
 
     public partial class OrdersItem
     {
@@ -10,6 +11,7 @@ namespace Webshop.Models
 
         public Guid? MenuItemId { get; set; }
 
+        [Display(Name = "Quantity", ResourceType = typeof(Resources.Cart))]
         public int? Quantity { get; set; }
 
         public virtual MenuItem MenuItem { get; set; }

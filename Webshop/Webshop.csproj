@@ -196,6 +196,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AuthController.cs" />
     <Compile Include="Controllers\CartController.cs" />
+    <Compile Include="Controllers\ControllerBase.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MenuItemsController.cs" />
     <Compile Include="Global.asax.cs">
@@ -231,6 +232,56 @@
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\OrdersItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\ModelValidation.hu.Designer.cs">
+      <DependentUpon>ModelValidation.hu.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\ModelValidation.Designer.cs">
+      <DependentUpon>ModelValidation.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\Cart.hu.Designer.cs">
+      <DependentUpon>Cart.hu.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\Cart.Designer.cs">
+      <DependentUpon>Cart.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\MenuItem.hu.Designer.cs">
+      <DependentUpon>MenuItem.hu.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\MenuItem.Designer.cs">
+      <DependentUpon>MenuItem.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\Common.hu.Designer.cs">
+      <DependentUpon>Common.hu.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\Common.Designer.cs">
+      <DependentUpon>Common.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\Auth.hu.Designer.cs">
+      <DependentUpon>Auth.hu.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\Auth.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Auth.resx</DependentUpon>
+    </Compile>
     <Compile Include="Services\CartService.cs" />
     <Compile Include="Services\CategoriesService.cs" />
     <Compile Include="Services\ICartService.cs" />
@@ -318,6 +369,56 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201810021549389_CleanupOrders.resx">
       <DependentUpon>201810021549389_CleanupOrders.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\ModelValidation.hu.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ModelValidation.hu.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>Webshop.Resources</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\ModelValidation.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ModelValidation.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>Webshop.Resources</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Cart.hu.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Cart.hu.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>Webshop.Resources</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Cart.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Cart.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>Webshop.Resources</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\MenuItem.hu.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>MenuItem.hu.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>Webshop.Resources</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\MenuItem.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>MenuItem.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>Webshop.Resources</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Common.hu.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Common.hu.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>Webshop.Resources</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Common.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Common.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>Webshop.Resources</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Auth.hu.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Auth.hu.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>Webshop.Resources</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Auth.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Auth.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>Webshop.Resources</CustomToolNamespace>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -1,9 +1,9 @@
 ﻿@model IEnumerable<Webshop.Models.MenuItem>
 
-<h2>Home</h2>
+<h2>@Webshop.Resources.Common.Home</h2>
 
 <h3>
-    Categories
+    @Webshop.Resources.Common.Categories
 </h3>
 
 <ul>
@@ -14,7 +14,7 @@
 </ul>
 
 <h3>
-    Popular dishes
+    @Webshop.Resources.Common.PopularDishes
 </h3>
 
 <table class="table">
@@ -63,7 +63,7 @@
             @Html.DisplayFor(modelItem => item.Price)
         </td>
         <td>
-            @Html.ActionLink("Add to cart", "Add", "Cart", new { id = item.Id }, null)
+            @Html.ActionLink(Webshop.Resources.Cart.AddToCart, "Add", "Cart", new { id = item.Id }, null)
         </td>
     </tr>
 }

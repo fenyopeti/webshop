@@ -16,14 +16,18 @@ namespace Webshop.Models
         public Guid Id { get; set; }
 
         [StringLength(255)]
+        [Display(Name = "Category", ResourceType = typeof(Resources.MenuItem))]
         public string Category { get; set; }
 
         [StringLength(255)]
+        [Display(Name = "Description", ResourceType = typeof(Resources.MenuItem))]
         public string Description { get; set; }
 
         [StringLength(255)]
+        [Display(Name = "Name", ResourceType = typeof(Resources.MenuItem))]
         public string Name { get; set; }
 
+        [Display(Name = "Price", ResourceType = typeof(Resources.MenuItem))]
         public int? Price { get; set; }
 
         public int? Spicy { get; set; }

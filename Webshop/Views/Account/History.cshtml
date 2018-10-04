@@ -4,6 +4,9 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<h3>
+    @Webshop.Resources.Common.History
+</h3>
 
     @foreach (var item in Model)
     {
@@ -20,14 +23,14 @@
             <table class="table">
                 <tr>
                     <th>
-                        Name
+                        @Html.DisplayNameFor(model => model.FirstOrDefault().OrdersItems.First().MenuItem.Name)
                     </th>
                     <th>
-                        Desc
+                        @Html.DisplayNameFor(model => model.FirstOrDefault().OrdersItems.First().Quantity)
                     </th>
                     <th>
-                        Price
-                        </th>
+                        @Html.DisplayNameFor(model => model.FirstOrDefault().OrdersItems.First().MenuItem.Price)
+                    </th>
                 </tr>
                 @foreach (var orderItem in item.OrdersItems)
                 {
@@ -36,7 +39,7 @@
                         @Html.DisplayFor(modelItem => orderItem.MenuItem.Description)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => orderItem.MenuItem.Name)
+                        @Html.DisplayFor(modelItem => orderItem.Quantity)
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => orderItem.MenuItem.Price)

@@ -1,10 +1,12 @@
-﻿using System.Threading.Tasks;
+﻿using System.Threading;
+using System.Threading.Tasks;
+using System.Web;
 using System.Web.Mvc;
 using Webshop.Services;
 
 namespace Webshop.Controllers
 {
-    public class MenuItemsController : Controller
+    public class MenuItemsController : ControllerBase
     {
         private readonly IMenuItemService _menuItemService;
         private readonly ICategoriesService _categoriesService;

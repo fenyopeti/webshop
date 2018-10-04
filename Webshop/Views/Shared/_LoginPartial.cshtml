@@ -6,20 +6,41 @@
         @Html.AntiForgeryToken()
 
 <ul class="nav navbar-nav navbar-right">
-    <li>
-        @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+    <li class="dropdown">
+        <ul>
+            <li>
+                <a href="@Url.Action("ChangeLanguage", "Home", new { language = "en" })">English</a>
+            </li>
+            <li>
+                <a href="@Url.Action("ChangeLanguage", "Home", new { language = "hu" })">Magyar</a>
+            </li>
+        </ul>
     </li>
     <li>
-        @Html.ActionLink("History", "History", "Account")
+        @Html.ActionLink(string.Format(Webshop.Resources.Common.Hello, User.Identity.GetUserName()), "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
     </li>
-    <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
+    <li>@Html.ActionLink(Webshop.Resources.Common.Cart, "Index", "Cart")</li>
+    <li>
+        @Html.ActionLink(Webshop.Resources.Common.History, "History", "Account")
+    </li>
+    <li><a href="javascript:document.getElementById('logoutForm').submit()">@Webshop.Resources.Auth.LogOff</a></li>
 </ul>
     }
 }
 else
 {
-    <ul class="nav navbar-nav navbar-right">
-        <li>@Html.ActionLink("Register", "Register", "Auth", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
-        <li>@Html.ActionLink("Log in", "Login", "Auth", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
-    </ul>
+<ul class="nav navbar-nav navbar-right">
+    <li class="dropdown">
+        <ul>
+            <li>
+                <a href="@Url.Action("ChangeLanguage", "Home", new { language = "en" })">English</a>
+            </li>
+            <li>
+                <a href="@Url.Action("ChangeLanguage", "Home", new { language = "hu" })">Magyar</a>
+            </li>
+        </ul>
+    </li>
+    <li>@Html.ActionLink(Webshop.Resources.Auth.Register, "Register", "Auth", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+    <li>@Html.ActionLink(Webshop.Resources.Auth.Login, "Login", "Auth", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+</ul>
 }

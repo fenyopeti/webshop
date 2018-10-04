@@ -1,0 +1,11 @@
+Code first migrációk - done
+Regisztráció - done
+Custom adatok (Név email telefonszám) - done
+Rendelést leadni csak user tud - done
+User rendeléseit mentsük - done
+Csak saját History view - done
+Lokalizáció - done
+
+Authorizáció
+Admin - minden rendelést lát
+

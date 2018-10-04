@@ -6,7 +6,7 @@ namespace Webshop.Models
     public partial class WebshopDatabaseEntities : IdentityDbContext<ApplicationUser>
     {
         public WebshopDatabaseEntities()
-            : base("name=Models", throwIfV1Schema: false)
+            : base("name=WebshopDatabaseEntities", throwIfV1Schema: false)
         {
         }
 

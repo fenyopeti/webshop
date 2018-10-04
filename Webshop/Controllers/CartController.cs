@@ -6,7 +6,7 @@ using Webshop.Services;
 namespace Webshop.Controllers
 {
     [Authorize]
-    public class CartController : Controller
+    public class CartController : ControllerBase
     {
         private readonly ICartService _cartService;
 
